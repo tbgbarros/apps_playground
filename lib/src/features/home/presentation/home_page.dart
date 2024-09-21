@@ -1,6 +1,8 @@
 import 'package:apps_playground/src/features/xylophone/presentation/xylophone_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../insanelybutton/presentation/insanely_button_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -51,11 +53,8 @@ class _HomePageState extends State<HomePage> {
             ),
             FilledButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const InsanelyButtonPage(),
-                  ),
-                );
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => InsanelyButtonPage()));
               },
               child: const Text('InsanelyButton'),
             ),
