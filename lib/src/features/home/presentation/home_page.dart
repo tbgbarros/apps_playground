@@ -49,6 +49,16 @@ class _HomePageState extends State<HomePage> {
               },
               child: const Text('Xylophone'),
             ),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const InsanelyButtonPage(),
+                  ),
+                );
+              },
+              child: const Text('InsanelyButton'),
+            ),
           ],
         ),
       ),
