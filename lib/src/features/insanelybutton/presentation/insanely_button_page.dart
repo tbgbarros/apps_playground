@@ -12,29 +12,40 @@ class InsanelyButtonPage extends StatefulWidget {
 class _InsanelyButtonPageState extends State<InsanelyButtonPage> {
   Timer? _timer;
   int _startValue = 30;
+  bool _buttonState = false;
+  int _clicks = 0;
 
   void start() {
+    _timer?.cancel();
+    _buttonState = true;
+
     _timer = Timer.periodic(
-      Duration(seconds: 1),
+      const Duration(seconds: 1),
       (timer) {
         setState(() {
-          if (_startValue > 0)
+          if (_startValue > 0) {
             _startValue--;
-          else
+          } else {
             _timer?.cancel();
+            _buttonState = false;
+          }
         });
       },
     );
   }
 
-  void stop() {
+  void pause() {
     _timer?.cancel();
+    setState(() {
+      _buttonState = false;
+    });
   }
 
   void reset() {
     _timer?.cancel();
     setState(() {
       _startValue = 30;
+      _clicks = 0;
     });
   }
 
@@ -48,13 +59,13 @@ class _InsanelyButtonPageState extends State<InsanelyButtonPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Insanely Button'),
+        title: const Text('Insanely Button'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('TIMER', style: TextStyle(fontSize: 72)),
+            const Text('TIMER', style: TextStyle(fontSize: 72)),
             Text(
               '$_startValue',
               style: const TextStyle(
@@ -69,32 +80,38 @@ class _InsanelyButtonPageState extends State<InsanelyButtonPage> {
                     onPressed: () {
                       start();
                     },
-                    child: Text('START')),
+                    child: const Text('START')),
                 ElevatedButton(
                     onPressed: () {
-                      stop();
+                      pause();
                     },
-                    child: Text('STOP')),
+                    child: const Text('PAUSE')),
                 ElevatedButton(
                     onPressed: () {
                       reset();
                     },
-                    child: Text('RESET')),
+                    child: const Text('RESET')),
               ],
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             SizedBox(
               width: 175,
               height: 175,
               child: FilledButton(
-                  onPressed: () {},
+                  onPressed: _buttonState
+                      ? () {
+                          setState(() {
+                            _clicks++;
+                          });
+                        }
+                      : null,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('INSANE BUTTON'),
+                      const Text('INSANE BUTTON'),
                       Text(
-                        '12',
-                        style: TextStyle(
+                        _clicks.toString(),
+                        style: const TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w500,
                         ),
