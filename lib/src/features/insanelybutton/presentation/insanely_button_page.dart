@@ -11,7 +11,6 @@ class InsanelyButtonPage extends StatefulWidget {
 
 class _InsanelyButtonPageState extends State<InsanelyButtonPage> {
   Timer? _timer;
-  int _clicks = 0;
   int _startValue = 30;
 
   void start() {
@@ -19,14 +18,24 @@ class _InsanelyButtonPageState extends State<InsanelyButtonPage> {
       Duration(seconds: 1),
       (timer) {
         setState(() {
-          if (_startValue > 0) {
+          if (_startValue > 0)
             _startValue--;
-          } else {
-            _timer!.cancel();
-          }
+          else
+            _timer?.cancel();
         });
       },
     );
+  }
+
+  void stop() {
+    _timer?.cancel();
+  }
+
+  void reset() {
+    _timer?.cancel();
+    setState(() {
+      _startValue = 30;
+    });
   }
 
   @override
@@ -61,8 +70,16 @@ class _InsanelyButtonPageState extends State<InsanelyButtonPage> {
                       start();
                     },
                     child: Text('START')),
-                ElevatedButton(onPressed: () {}, child: Text('STOP')),
-                ElevatedButton(onPressed: () {}, child: Text('RESET')),
+                ElevatedButton(
+                    onPressed: () {
+                      stop();
+                    },
+                    child: Text('STOP')),
+                ElevatedButton(
+                    onPressed: () {
+                      reset();
+                    },
+                    child: Text('RESET')),
               ],
             ),
             SizedBox(height: 50),
