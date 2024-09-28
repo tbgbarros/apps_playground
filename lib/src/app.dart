@@ -1,3 +1,4 @@
+import 'package:apps_playground/src/features/impopar/presentation/impopar.dart';
 import 'package:apps_playground/src/features/insanelybutton/presentation/insanely_button_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class App extends StatelessWidget {
         '/': (context) => const HomePage(),
         '/sounds': (_) => const SoundsPage(),
         '/insanebutton': (_) => const InsanelyButtonPage(),
+        '/impopar': (_) => const ImpoParPage(),
       },
     );
   }

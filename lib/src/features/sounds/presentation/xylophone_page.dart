@@ -1,4 +1,4 @@
-import 'package:apps_playground/src/features/xylophone/presentation/widgets/xylophone_button_widget.dart';
+import 'package:apps_playground/src/features/sounds/presentation/widgets/xylophone_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 

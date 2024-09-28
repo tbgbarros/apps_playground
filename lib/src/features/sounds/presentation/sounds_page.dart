@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../xylophone/presentation/xylophone_page.dart';
+import 'funny_sounds_page.dart';
+import 'xylophone_page.dart';
 
 class SoundsPage extends StatefulWidget {
   const SoundsPage({super.key});
@@ -28,12 +29,10 @@ class _SoundsPageState extends State<SoundsPage> {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            const XylophonePage(),
-            Container(
-              color: Colors.red.shade200,
-            ),
+            XylophonePage(),
+            FunnySoundsPage(),
           ],
         ),
       ),

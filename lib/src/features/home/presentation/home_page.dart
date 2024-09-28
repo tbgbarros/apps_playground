@@ -1,5 +1,5 @@
 import 'package:apps_playground/src/features/sounds/presentation/sounds_page.dart';
-import 'package:apps_playground/src/features/xylophone/presentation/xylophone_page.dart';
+import 'package:apps_playground/src/features/sounds/presentation/xylophone_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../insanelybutton/presentation/insanely_button_page.dart';
@@ -53,6 +53,12 @@ class _HomePageState extends State<HomePage> {
                 Navigator.of(context).pushNamed('/insanebutton');
               },
               child: const Text('InsanelyButton'),
+            ),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/impopar');
+              },
+              child: const Text('ImpoPar'),
             ),
           ],
         ),
