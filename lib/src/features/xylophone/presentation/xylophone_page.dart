@@ -20,11 +20,6 @@ class _XylophonePageState extends State<XylophonePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Xylophone'),
-        backgroundColor: Colors.purple.shade900,
-        foregroundColor: Colors.white,
-      ),
       body: Column(
         children: [
           XylophoneButtonWidget(

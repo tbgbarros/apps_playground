@@ -1,3 +1,4 @@
+import 'package:apps_playground/src/features/sounds/presentation/sounds_page.dart';
 import 'package:apps_playground/src/features/xylophone/presentation/xylophone_page.dart';
 import 'package:flutter/material.dart';
 
@@ -43,18 +44,13 @@ class _HomePageState extends State<HomePage> {
           children: [
             FilledButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const XylophonePage(),
-                  ),
-                );
+                Navigator.of(context).pushNamed('/sounds');
               },
-              child: const Text('Xylophone'),
+              child: const Text('Sounds Page'),
             ),
             FilledButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => InsanelyButtonPage()));
+                Navigator.of(context).pushNamed('/insanebutton');
               },
               child: const Text('InsanelyButton'),
             ),
