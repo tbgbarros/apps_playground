@@ -1,8 +1,4 @@
-import 'package:apps_playground/src/features/sounds/presentation/sounds_page.dart';
-import 'package:apps_playground/src/features/sounds/presentation/xylophone_page.dart';
 import 'package:flutter/material.dart';
-
-import '../../insanelybutton/presentation/insanely_button_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,19 +36,21 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            FilledButton(
+            FilledButton.icon(
               onPressed: () {
                 Navigator.of(context).pushNamed('/sounds');
               },
-              child: const Text('Sounds Page'),
+              label: const Text('Sounds Page'),
+              icon: Icon(Icons.bookmark_add),
             ),
-            FilledButton(
+            FilledButton.icon(
               onPressed: () {
                 Navigator.of(context).pushNamed('/insanebutton');
               },
-              child: const Text('InsanelyButton'),
+              icon: Icon(Icons.favorite),
+              label: Text('InsanelyButton'),
             ),
             FilledButton(
               onPressed: () {

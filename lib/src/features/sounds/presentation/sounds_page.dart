@@ -11,6 +11,9 @@ class SoundsPage extends StatefulWidget {
 }
 
 class _SoundsPageState extends State<SoundsPage> {
+  int selectIndex=0;
+
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

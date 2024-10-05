@@ -16,7 +16,7 @@ class XylophoneButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        overlayColor: WidgetStatePropertyAll<Color>(Colors.black38),
+        overlayColor: const WidgetStatePropertyAll<Color>(Colors.black38),
         onTap: () {
           callBack(assetId);
         },
